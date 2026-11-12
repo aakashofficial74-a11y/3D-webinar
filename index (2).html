@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkPulse – LinkedIn Personal Branding &amp; Growth System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8f9ff;--s1:#eff4ff;--s2:#e5eeff;--s3:#dce9ff;--s4:#d3e4fe;--ink:#0b1c30;--mute:#45464d;--pri:#0051d5;--dark:#131b2e;--ph:#76777d}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.pj{font-family:"Plus Jakarta Sans",Inter,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.sec{padding:96px 0}
+.pill{display:inline-block;background:var(--s1);color:var(--pri);font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:1.2px;text-transform:uppercase;padding:4px 16px;border-radius:99px}
+.pill.w{background:var(--bg);box-shadow:0 1px 1px rgba(0,0,0,.05)}
+.shead{text-align:center;max-width:672px;margin:0 auto 64px}
+.shead h2{font-size:40px;line-height:48px;letter-spacing:-1px;margin-top:4px}
+.shead p{font-size:18px;line-height:28px;color:var(--mute);margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;border-radius:8px;font-weight:600;cursor:pointer;border:0;font-family:"Plus Jakarta Sans",sans-serif}
+.btn.p{background:var(--pri);color:#fff}
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(248,249,255,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 8px rgba(15,23,42,.04)}
+.hd{height:80px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font:700 20px/28px "Plus Jakarta Sans",sans-serif;letter-spacing:-.5px}
+nav{display:flex;gap:24px;align-items:center}
+nav a{font:600 14px/20px "Plus Jakarta Sans",sans-serif;color:var(--mute)}
+nav a.on{font:600 16px/24px Inter,sans-serif;color:var(--pri)}
+.hr{display:flex;gap:16px;align-items:center}
+.hr .btn{padding:8px 16px;font-size:14px;line-height:20px;box-shadow:0 12px 24px -6px rgba(37,99,235,.18)}
+.av{border-radius:50%;object-fit:cover;background:var(--s4)}
+.hr .av{width:32px;height:32px;box-shadow:0 0 0 2px var(--s4)}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:96px 0}
+.blob{position:absolute;border-radius:50%;filter:blur(64px);pointer-events:none}
+.grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:40px;align-items:center;position:relative}
+.hl{grid-column:1/span 7;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.hrr{grid-column:8/span 5}
+.badge{display:inline-flex;gap:4px;align-items:center;background:var(--s2);color:var(--pri);font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.3px;padding:6px 16px;border-radius:99px;box-shadow:0 1px 1px rgba(0,0,0,.05)}
+.hero h1{font-size:56px;line-height:64px;font-weight:800;letter-spacing:-1.68px;padding-top:4px}
+.hero h1 em{font-style:normal;color:var(--pri);position:relative;display:inline-block}
+.hero h1 em:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:5px;border-radius:99px;background:var(--pri);opacity:.4}
+.sub{font-size:18px;line-height:29px;letter-spacing:-.18px;color:var(--mute);max-width:576px}
+.sup{display:flex;gap:4px;align-items:center;background:var(--s1);border-radius:8px;padding:4px 16px;font:600 14px/20px "Plus Jakarta Sans",sans-serif;box-shadow:0 1px 1px rgba(0,0,0,.05)}
+.sup .ic{width:20px;height:20px;color:var(--pri)}
+.ctas{display:flex;gap:16px;flex-wrap:wrap;padding-top:8px}
+.ctas .btn{font-size:16px;line-height:24px;letter-spacing:-.16px}
+.ctas .p{padding:14px 40px;box-shadow:0 20px 25px -5px rgba(0,81,213,.2),0 8px 10px -6px rgba(0,81,213,.2)}
+.ctas .s{padding:14px 24px;background:var(--s4);color:var(--ink)}
+.proof{display:flex;gap:16px;align-items:center;padding-top:4px}
+.stack{display:flex}
+.stack .av{width:40px;height:40px;box-shadow:0 0 0 2px var(--bg),0 1px 2px rgba(0,0,0,.05);margin-right:-12px}
+.stars{display:flex;gap:2px;color:#f59e0b}
+.stars .ic{fill:currentColor;stroke:none}
+.proof small{font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;color:var(--mute)}
+.mock{position:relative;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px;box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+.mock:before{content:"";position:absolute;inset:-17px -16px;background:rgba(180,197,255,.3);filter:blur(40px);border-radius:24px;transform:rotate(1deg);z-index:-1}
+.mh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.who{display:flex;gap:8px;align-items:center}
+.who .av{width:53px;height:56px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}
+.who b{font:600 14px/20px "Plus Jakarta Sans",sans-serif;margin-right:4px}
+.tag{display:inline-block;background:var(--s3);color:var(--mute);font:600 12px/16px "Plus Jakarta Sans",sans-serif;padding:2px 6px;border-radius:4px}
+.who p{font-size:14px;line-height:20px;color:var(--mute)}
+.live{display:flex;gap:4px;align-items:center;background:var(--s2);color:var(--pri);font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;padding:4px 10px;border-radius:8px}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--pri)}
+.mets{display:flex;gap:8px;padding-top:4px}
+.met{flex:1;background:var(--s1);border-radius:12px;padding:8px;min-width:0}
+.met div{display:flex;justify-content:space-between;align-items:center;gap:4px}
+.met span{font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;color:var(--mute)}
+.met em{font:600 12px/16px Inter,sans-serif;font-style:normal;padding:2px 6px;border-radius:99px}
+.met strong{display:block;font:700 28px/36px "Plus Jakarta Sans",sans-serif;letter-spacing:-.56px;padding-top:4px}
+.met p{font-size:14px;line-height:20px;color:var(--mute)}
+.chart{background:var(--s1);border-radius:12px;padding:16px}
+.chart .t{display:flex;justify-content:space-between;align-items:center}
+.chart small{display:block;font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;color:var(--mute)}
+.chart b{font:600 20px/28px "Plus Jakarta Sans",sans-serif;letter-spacing:-.3px}
+.chart svg.g{width:100%;height:96px;padding-top:8px}
+.ml{display:flex;justify-content:space-between;font-size:12px;line-height:16px;color:var(--mute);padding-top:4px}
+.ml b{font:600 12px/16px Inter,sans-serif;color:var(--pri)}
+.dm{display:flex;gap:8px;align-items:center;background:var(--s2);border-radius:12px;padding:8px;box-shadow:0 1px 1px rgba(0,0,0,.05)}
+.dm .ci{width:40px;height:40px;border-radius:50%;background:var(--pri);color:#fff;display:grid;place-items:center;flex:none}
+.dm b{display:block;font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;color:var(--pri)}
+.dm p{font-size:14px;line-height:20px;color:var(--mute)}
+/* cards */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 1px 1px rgba(0,0,0,.05);display:flex;flex-direction:column;justify-content:space-between;min-height:256px}
+.card.wide{grid-column:span 2;flex-direction:row;align-items:center;gap:32px;min-height:260px}
+.ct{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:16px}
+.ico{width:48px;height:48px;border-radius:12px;background:var(--s2);color:var(--pri);display:grid;place-items:center;font-size:22px}
+.chip{background:var(--s3);color:var(--pri);font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;padding:4px 12px;border-radius:99px;white-space:nowrap}
+.chip.g{background:#d1fae5;color:#065f46}
+.card h3{font-size:20px;line-height:28px;font-weight:600;letter-spacing:-.3px;margin-bottom:4px}
+.card p{font-size:16px;line-height:24px;letter-spacing:-.08px;color:var(--mute)}
+.lk{display:flex;gap:4px;align-items:center;padding-top:24px;font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;color:var(--pri)}
+.lk .ic{width:10px;height:10px}
+.wide .in{flex:1;max-width:576px}
+.wide .row{display:flex;gap:8px;align-items:center;padding-bottom:8px}
+.spark{width:224px;flex:none;background:var(--s1);border-radius:12px;padding:16px;text-align:center}
+.spark strong{display:block;font:700 28px/36px "Plus Jakarta Sans",sans-serif;letter-spacing:-.56px;color:var(--pri)}
+.spark small{font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;color:var(--mute)}
+.bar{height:8px;border-radius:99px;background:var(--s4);margin-top:16px;overflow:hidden}
+.bar i{display:block;height:100%;width:88%;background:var(--pri);border-radius:99px}
+/* audit */
+.audit{padding:112px 0}
+.acard{position:relative;overflow:hidden;background:var(--dark);border-radius:24px;padding:64px;box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+.acard .blob{width:384px;height:384px}
+.gb{display:inline-block;background:linear-gradient(90deg,rgba(245,158,11,.2),rgba(0,81,213,.3));color:#fcd34d;font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;padding:6px 16px;border-radius:99px;box-shadow:0 0 20px rgba(245,158,11,.25)}
+.acard h2{font-size:56px;line-height:64px;font-weight:800;letter-spacing:-1.68px;color:#fff}
+.acard h2 u{color:#b4c5ff;text-decoration-color:#316bf3;text-decoration-thickness:5px}
+.acard .sub{color:#bec6e0;max-width:576px;line-height:28px}
+.chk{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px 0;width:100%}
+.chk div{display:flex;gap:4px;align-items:center;background:rgba(211,228,254,.1);backdrop-filter:blur(12px);border-radius:12px;padding:8px;min-height:64px;color:#fff;letter-spacing:-.08px}
+.chk i{width:24px;height:24px;border-radius:50%;background:var(--pri);display:grid;place-items:center;flex:none;margin-right:4px}
+.chk .ic{width:10px;height:10px;stroke-width:3}
+.call{display:flex;gap:4px;background:rgba(211,228,254,.15);backdrop-filter:blur(12px);border-radius:12px;padding:16px;font:600 14px/22px "Plus Jakarta Sans",sans-serif;color:#fff;width:100%}
+.call b{color:#fcd34d;font-weight:700}
+.call .ic{color:#fcd34d;margin-top:3px}
+.book{grid-column:8/span 5;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px;box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+.bh{display:flex;justify-content:space-between;align-items:center;padding-bottom:8px}
+.bh small{display:block;font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.6px;text-transform:uppercase;color:var(--mute)}
+.bh b{font:600 20px/28px "Plus Jakarta Sans",sans-serif;letter-spacing:-.3px}
+.price{text-align:right}
+.price s{font-size:12px;line-height:16px;color:var(--mute)}
+.price strong{display:block;font:800 40px/48px "Plus Jakarta Sans",sans-serif;letter-spacing:-1px;color:var(--pri)}
+.ben{display:flex;flex-direction:column;gap:4px}
+.ben div{display:flex;gap:8px;align-items:center;font-size:14px;line-height:20px;color:var(--mute)}
+.ben .ic{color:var(--pri);width:14px;height:14px}
+.cta{padding:16px;border-radius:12px;font:700 16px/24px "Plus Jakarta Sans",sans-serif;letter-spacing:-.16px;box-shadow:0 10px 15px -3px rgba(0,81,213,.3),0 4px 6px -4px rgba(0,81,213,.3)}
+.sec-l{display:flex;gap:8px;justify-content:center;align-items:center;padding-top:4px;font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;color:var(--mute);text-align:center}
+.sec-l .ic{width:10px;height:12px}
+/* form */
+.fgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:40px;align-items:center}
+.fl{grid-column:1/span 6;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.fl h2{font-size:40px;line-height:48px;letter-spacing:-1px}
+.fl>p{font-size:18px;line-height:28px;letter-spacing:-.18px;color:var(--mute)}
+.perk{display:flex;gap:8px;padding-top:4px}
+.perk+.perk{padding-top:0}
+.perks{display:flex;flex-direction:column;gap:8px;padding-top:4px}
+.perk i{width:32px;height:32px;border-radius:8px;background:var(--s4);color:var(--pri);display:grid;place-items:center;flex:none;margin-top:2px}
+.perk .ic{width:15px;height:15px}
+.perk b{display:block;font:600 14px/20px "Plus Jakarta Sans",sans-serif}
+.perk p{font-size:14px;line-height:20px;color:var(--mute)}
+.fr{grid-column:7/span 6;background:#fff;border-radius:16px;padding:40px;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+.fr h3{font-size:20px;line-height:28px;font-weight:600;letter-spacing:-.3px}
+.fr>p{font-size:14px;line-height:20px;color:var(--mute);margin-bottom:16px}
+form{display:flex;flex-direction:column;gap:16px}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld label{font:600 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px}
+.inp{position:relative}
+.inp .ic{position:absolute;left:16px;top:17px;width:15px;height:15px;color:var(--ph)}
+.inp input{width:100%;height:48px;border:0;border-radius:8px;background:var(--s1);padding:14px 16px 14px 44px;font:400 16px Inter,sans-serif;letter-spacing:-.08px;color:var(--ink);outline:2px solid transparent}
+.inp input::placeholder{color:var(--ph)}
+.inp input:focus{outline-color:var(--pri);background:#fff}
+.sub-b{height:48px;margin-top:4px;font:700 14px/20px "Plus Jakarta Sans",sans-serif;gap:8px;box-shadow:0 10px 15px -3px rgba(0,81,213,.25),0 4px 6px -4px rgba(0,81,213,.25)}
+.sub-b:disabled{opacity:.7;cursor:wait}
+.sub-b .ic{width:12px;height:12px}
+.trust{text-align:center;font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px;color:var(--mute)}
+#msg{display:none;text-align:center;font:600 14px/20px "Plus Jakarta Sans",sans-serif;padding:12px;border-radius:8px}
+#msg.ok{display:block;background:#d1fae5;color:#065f46}
+#msg.err{display:block;background:#fee2e2;color:#991b1b}
+/* reviews */
+.rv{background:var(--s1)}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:24px;align-items:start}
+.rev{background:#fff;border-radius:16px;padding:24px;box-shadow:0 1px 1px rgba(0,0,0,.05);display:flex;flex-direction:column;gap:29px;min-height:215px;justify-content:space-between}
+.rev .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.rev .stars .ic{width:15px;height:14px}
+.rev .ver{background:var(--s2);color:var(--mute);font:600 12px/16px "Plus Jakarta Sans",sans-serif;padding:2px 8px;border-radius:4px}
+.rev q{display:block;font:italic 400 18px/29px Inter,sans-serif;letter-spacing:-.18px;quotes:none}
+.auth{display:flex;gap:8px;align-items:center;padding-top:16px}
+.auth .av{width:48px;height:48px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.auth b{display:block;font:600 14px/20px "Plus Jakarta Sans",sans-serif}
+.auth span{font-size:14px;line-height:20px;color:var(--mute)}
+.banner{display:flex;gap:4px;justify-content:center;align-items:center;background:var(--s2);border-radius:16px;padding:16px;margin-top:40px;font:600 20px/28px "Plus Jakarta Sans",sans-serif;letter-spacing:-.3px;box-shadow:0 1px 1px rgba(0,0,0,.05);text-align:center}
+.banner .ic{color:var(--pri);width:22px;height:22px}
+/* faq */
+.faq{max-width:880px;margin:0 auto;padding:0 32px}
+.acc{display:flex;flex-direction:column;gap:8px}
+.it{background:var(--s1);border-radius:16px;overflow:hidden}
+.it button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px;background:none;border:0;cursor:pointer;text-align:left;font:600 20px/28px "Plus Jakarta Sans",sans-serif;letter-spacing:-.3px;color:var(--ink)}
+.it button .ic{width:12px;height:12px;color:var(--ink);transition:transform .2s}
+.it button[aria-expanded=true] .ic{transform:rotate(180deg)}
+.it .ans{padding:0 24px 24px;font-size:16px;line-height:24px;letter-spacing:-.08px;color:var(--mute)}
+/* bottom + footer */
+.bot{background:#fff;padding:64px 0}
+.bg3{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding-bottom:48px}
+.bc{grid-column:1/span 5}
+.bc .nm{display:flex;gap:8px;align-items:center}
+.bc .nm b{font:800 28px/36px "Plus Jakarta Sans",sans-serif;letter-spacing:-.7px}
+.bc .tag{background:var(--s4);color:var(--pri);padding:2px 8px}
+.bc p,.qn p{font-size:18px;line-height:28px;letter-spacing:-.18px;color:var(--mute);max-width:384px;padding-top:8px}
+.qn{grid-column:6/span 3}
+.co{grid-column:9/span 4}
+.h5{font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.6px;text-transform:uppercase}
+.qn ul{list-style:none;display:flex;flex-direction:column;gap:8px;padding-top:8px}
+.qn li a{font-size:16px;line-height:24px;color:var(--mute)}
+.co p{font-size:16px;line-height:24px;letter-spacing:-.08px;color:var(--mute);padding-top:4px}
+.cl{display:flex;gap:8px;flex-wrap:wrap;padding-top:12px}
+.cl a{display:flex;gap:8px;align-items:center;padding:10px 16px;border-radius:8px;font:600 14px/20px "Plus Jakarta Sans",sans-serif;box-shadow:0 1px 1px rgba(0,0,0,.05)}
+.cl a:first-child{background:var(--s2)}
+.cl a+a{background:#ecfdf5;color:#065f46}
+.cl .ic{width:15px;height:15px}
+.cn{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:32px;font-size:14px;line-height:20px;color:var(--mute)}
+.cn span{font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px}
+footer{background:var(--s1);padding:40px 0;box-shadow:0 -1px 4px rgba(15,23,42,.02)}
+.f1{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:24px}
+.f1>p{font-size:14px;line-height:20px;color:var(--mute);max-width:620px}
+.f1 nav{gap:16px}
+.f1 nav a{font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px}
+.f2{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:16px;font-size:14px;line-height:20px;color:var(--mute)}
+.f2 span{display:flex;gap:4px;align-items:center;font:700 12px/16px "Plus Jakarta Sans",sans-serif;letter-spacing:.48px}
+.f2 i{width:8px;height:8px;border-radius:50%;background:#4edea3}
+/* responsive */
+@media(max-width:1024px){
+ .hero h1,.acard h2{font-size:44px;line-height:52px}
+ .hl,.hrr,.book,.fl,.fr{grid-column:1/-1}
+ .acard{padding:40px 28px}
+ .bento{grid-template-columns:1fr 1fr}
+ .card.wide{grid-column:span 2}
+ .bc{grid-column:1/-1}.qn{grid-column:1/span 6}.co{grid-column:7/span 6}
+ nav{display:none}
+ .f1{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:700px){
+ .wrap,.faq{padding:0 20px}
+ .sec{padding:64px 0}.hero{padding:56px 0}.audit{padding:64px 0}
+ .hero h1,.acard h2{font-size:34px;line-height:42px;letter-spacing:-1px}
+ .shead h2,.fl h2{font-size:30px;line-height:38px}
+ .bento,.rgrid,.chk{grid-template-columns:1fr}
+ .card.wide{grid-column:auto;flex-direction:column;align-items:stretch}
+ .spark{width:100%}
+ .acard{padding:28px 20px;border-radius:20px}
+ .fr{padding:24px}
+ .mets{flex-direction:column}
+ .qn,.co{grid-column:1/-1}
+ .hr .btn{display:none}
+ .it button{font-size:17px;line-height:24px;padding:20px}
+ .ctas .p{padding:14px 24px}
+ .mh{flex-wrap:wrap}
+ .banner{font-size:17px}
+}
+</style>
+</head>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="i-chk" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+<symbol id="i-ar" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+<symbol id="i-ph" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+<symbol id="i-dn" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol>
+<symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/></symbol>
+<symbol id="i-vid" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3z"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+<symbol id="i-tgt" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></symbol>
+<symbol id="i-fil" viewBox="0 0 24 24"><path d="M3 4h18l-7 9v6l-4 2v-8z"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-uc" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6M17 5l1.5 3L22 8.5l-2.5 2.2.6 3.3-3.1-1.7"/></symbol>
+<symbol id="i-bd" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8 14-2 7 6-3 6 3-2-7"/></symbol>
+<symbol id="i-hy" viewBox="0 0 24 24"><path d="M2 12 8 6l4 4 10-6M16 4h6v6"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22a6 6 0 0 0 6-6c0-4-4-6-4-11-3 2-8 6-8 11a6 6 0 0 0 6 6z"/></symbol>
+<symbol id="i-spk" viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+</defs>
+</svg>
+
+<header>
+<div class="wrap hd">
+ <a href="#top" class="logo">LinkPulse</a>
+ <nav>
+  <a href="#top" class="on">Overview</a><a href="#results">Results</a><a href="#audit">₹1 Audit</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
+ </nav>
+ <div class="hr">
+  <a href="#audit" class="btn p">Get Your Profile Audit</a>
+  <img class="av" alt="" src="https://www.figma.com/api/mcp/asset/e2f7d0df-82bf-4580-9bc4-5b86b92da522.png">
+ </div>
+</div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+ <div class="blob" style="left:-96px;top:-96px;width:384px;height:384px;background:#dbe1ff;opacity:.4"></div>
+ <div class="blob" style="right:-96px;bottom:-40px;width:320px;height:320px;background:#d3e4fe;opacity:.6"></div>
+ <div class="wrap grid12">
+  <div class="hl">
+   <span class="badge">🚀 LinkedIn Personal Branding &amp; Growth System</span>
+   <h1>Turn Your LinkedIn From<br><em>Invisible to Influential</em></h1>
+   <p class="sub">We don’t just ‘optimize profiles.’ We build your personal brand from scratch — with strategy, content, and consistency that actually gets you seen.</p>
+   <div class="sup"><svg class="ic"><use href="#i-bolt"/></svg><span>From 0 to hero on LinkedIn — without confusion, guesswork, or wasting months figuring it out alone.</span></div>
+   <div class="ctas">
+    <a href="#audit" class="btn p">Get Your Profile Audit <svg class="ic" style="width:13px"><use href="#i-ar"/></svg></a>
+    <a href="#form" class="btn s">Start Growing Today <svg class="ic" style="width:15px"><use href="#i-hy"/></svg></a>
+   </div>
+   <div class="proof">
+    <div class="stack">
+     <img class="av" alt="" src="https://www.figma.com/api/mcp/asset/b1a2fa7b-6550-4a73-8d10-b97b108e2fe0.png">
+     <img class="av" alt="" src="https://www.figma.com/api/mcp/asset/df55199f-6ff6-4621-993a-895d61925d8a.png">
+     <img class="av" alt="" src="https://www.figma.com/api/mcp/asset/41631109-df60-43f1-9940-5462d09dd696.png">
+    </div>
+    <div>
+     <div class="stars" style="font-size:13px"><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg></div>
+     <small>Trusted by 100+ Enterprise Founders &amp; Execs</small>
+    </div>
+   </div>
+  </div>
+  <div class="hrr">
+   <div class="mock">
+    <div class="mh">
+     <div class="who">
+      <img class="av" alt="" src="https://www.figma.com/api/mcp/asset/cd2d53b5-ca9a-421f-be7a-dea81a21d35f.png">
+      <div><b>Alex Mercer</b><span class="tag">LinkedIn Top Voice</span><p>Founder &amp; Managing Director @ NexusTech</p></div>
+     </div>
+     <div class="live"><i></i>Live Metrics</div>
+    </div>
+    <div class="mets">
+     <div class="met"><div><span>Total Impressions</span><em style="background:#d1fae5;color:#047857">+480%</em></div><strong>1,420,890</strong><p>Past 90 days organic</p></div>
+     <div class="met"><div><span>Followers</span><em style="background:var(--s4);color:var(--pri)">+18.2k</em></div><strong>24.5k</strong><p>High-intent network</p></div>
+    </div>
+    <div class="chart">
+     <div class="t"><div><small>Organic Momentum</small><b>182 Qualified Inbound Inquiries</b></div><svg class="ic" style="width:22px;height:22px;color:var(--pri)"><use href="#i-trend"/></svg></div>
+     <svg class="g" viewBox="0 0 403 88" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0051d5" stop-opacity=".25"/><stop offset="1" stop-color="#0051d5" stop-opacity="0"/></linearGradient></defs><path d="M4 84C70 80 130 62 201 46S320 28 399 6V88H4z" fill="url(#gr)"/><path d="M4 84C70 80 130 62 201 46S320 28 399 6" fill="none" stroke="#0051d5" stroke-width="3" stroke-linecap="round"/><circle cx="201.5" cy="46" r="4.4" fill="#0051d5"/><circle cx="300.5" cy="24" r="4.4" fill="#0051d5"/><circle cx="399" cy="6" r="5.5" fill="#0051d5"/></svg>
+     <div class="ml"><span>Month 1: Foundation</span><span>Month 2: Scaling</span><b>Month 3: Authority</b></div>
+    </div>
+    <div class="dm"><div class="ci"><svg class="ic" style="width:17px;height:17px"><use href="#i-chat"/></svg></div><div><b>New High-Ticket Discovery Call Booked</b><p>“Loved your latest case breakdown. Are you taking new advisory clients?”</p></div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="sec" id="results" style="background:var(--s1)">
+ <div class="wrap">
+  <div class="shead"><span class="pill w">PROVEN TRACK RECORD</span><h2>Real Growth. Real Results.</h2><p>This isn’t luck. It’s a system that works.</p></div>
+  <div class="bento">
+   <div class="card"><div><div class="ct"><div class="ico"><svg class="ic"><use href="#i-bd"/></svg></div><span class="chip">100+ Leaders</span></div><h3>Authority Architecture</h3><p>Helped 100+ professionals build authority on LinkedIn by positioning them as unrivaled industry voices.</p></div><div class="lk">Verified Case Studies <svg class="ic"><use href="#i-ar"/></svg></div></div>
+   <div class="card"><div><div class="ct"><div class="ico"><svg class="ic"><use href="#i-msg"/></svg></div><span class="chip g">5x Inbound DMs</span></div><h3>Consistent Inbound Pipeline</h3><p>Generated consistent inbound leads through content that magnetically attracts ideal prospects.</p></div><div class="lk">Zero Cold Outreach Needed <svg class="ic"><use href="#i-ar"/></svg></div></div>
+   <div class="card"><div><div class="ct"><div class="ico"><svg class="ic"><use href="#i-trend"/></svg></div><span class="chip">0 → Top Voice</span></div><h3>Ground-Up Transformation</h3><p>Built personal brands from absolute zero without pre-existing followers or complex technical stacks.</p></div><div class="lk">Full Blueprint Delivery <svg class="ic"><use href="#i-ar"/></svg></div></div>
+   <div class="card wide">
+    <div class="in"><div class="row"><div class="ico"><svg class="ic"><use href="#i-eye"/></svg></div><span class="chip">1.2M+ Views</span></div><h3>Organic Reach That Dominates Feeds</h3><p>Content that reaches thousands organically by leveraging algorithmic resonance, sharp storytelling, and decisive intellectual stances.</p></div>
+    <div class="spark"><strong>+1,240,000</strong><small>Organic Views Driven</small><div class="bar"><i></i></div></div>
+   </div>
+   <div class="card"><div><div class="ct"><div class="ico"><svg class="ic"><use href="#i-fil"/></svg></div><span class="chip g">34% High Conversion</span></div><h3>Conversion Funneling</h3><p>Profiles that convert views into opportunities, turning passive profile lurkers into signed clients and lucrative speaking invites.</p></div><div class="lk">Optimized Funnel Architecture <svg class="ic"><use href="#i-ar"/></svg></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- AUDIT ₹1 -->
+<section class="audit" id="audit">
+ <div class="wrap">
+  <div class="acard">
+   <div class="blob" style="right:-96px;top:-96px;background:#316bf3;opacity:.2"></div>
+   <div class="blob" style="left:-96px;bottom:-96px;background:#0051d5;opacity:.3"></div>
+   <div class="grid12" style="gap:40px">
+    <div class="hl" style="grid-column:1/span 7">
+     <span class="gb">🔥 LIMITED VALUE OFFER — ₹1 ONLY</span>
+     <h2>Get a Complete<br>LinkedIn Audit for Just <u>Rupee 1</u></h2>
+     <p class="sub">Not a sales call. A real breakdown of what’s working, what’s not, and what to fix.</p>
+     <div class="chk">
+      <div><i><svg class="ic"><use href="#i-chk"/></svg></i>Profile review (headline, banner, positioning)</div>
+      <div><i><svg class="ic"><use href="#i-chk"/></svg></i>Content gap analysis</div>
+      <div><i><svg class="ic"><use href="#i-chk"/></svg></i>Personal brand direction</div>
+      <div><i><svg class="ic"><use href="#i-chk"/></svg></i>Clear action steps to improve visibility</div>
+     </div>
+     <div class="call"><svg class="ic"><use href="#i-bolt"/></svg><span><b>Why Rupee 1?</b> Because once you see the value, you’ll know what to do next.</span></div>
+    </div>
+    <div class="book">
+     <div class="bh"><div><small>Executive Advisory</small><b>1-on-1 Profile Teardown</b></div><div class="price"><s>₹4,999</s><strong>₹1</strong></div></div>
+     <div class="ben">
+      <div><svg class="ic"><use href="#i-vid"/></svg>30-minute private live video consultation</div>
+      <div><svg class="ic"><use href="#i-doc"/></svg>Actionable PDF summary delivered post-call</div>
+      <div><svg class="ic"><use href="#i-tgt"/></svg>Direct access to a senior growth strategist</div>
+     </div>
+     <!-- FREE AUDIT FOR 1 RUPEE BUTTON → Cashfree payment form -->
+     <a id="auditBtn" class="btn p cta" href="https://payments.cashfree.com/forms/getaudit" target="_blank" rel="noopener noreferrer">Book My Audit Now — Only ₹1 <svg class="ic" style="width:13px"><use href="#i-cal"/></svg></a>
+     <div class="sec-l"><svg class="ic"><use href="#i-lock"/></svg>Instant 30-min strategy slots available • 100% Actionable</div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- LEAD FORM -->
+<section class="sec" id="form" style="background:var(--bg)">
+ <div class="wrap fgrid">
+  <div class="fl">
+   <span class="pill">CUSTOM ROADMAP</span>
+   <h2>Let’s Build Your LinkedIn Presence Together</h2>
+   <p>Tell us a bit about you — and we’ll show you exactly how to grow.</p>
+   <div class="perks">
+    <div class="perk"><i><svg class="ic"><use href="#i-spk"/></svg></i><div><b>Tailored Content Pillars</b><p>We align your unique professional expertise with themes that resonate with high-value decision-makers.</p></div></div>
+    <div class="perk"><i><svg class="ic"><use href="#i-trend"/></svg></i><div><b>Algorithmic Advantage Formula</b><p>Learn the posting cadence, engagement loops, and formatting styles preferred by the current LinkedIn algorithm.</p></div></div>
+    <div class="perk"><i><svg class="ic"><use href="#i-bolt"/></svg></i><div><b>High-Conversion Profile Architecture</b><p>Transform your banner, featured slots, and about section into an automated client acquisition engine.</p></div></div>
+   </div>
+  </div>
+  <div class="fr">
+   <h3>Request Growth Blueprint</h3>
+   <p>Fill in your information to receive a personalized growth strategy.</p>
+   <form id="leadForm" novalidate>
+    <div class="fld"><label for="name">Full Name</label><div class="inp"><svg class="ic"><use href="#i-user"/></svg><input id="name" name="name" type="text" placeholder="e.g. Rachel Foster" autocomplete="name" required></div></div>
+    <div class="fld"><label for="email">Business Email</label><div class="inp"><svg class="ic"><use href="#i-mail"/></svg><input id="email" name="email" type="email" placeholder="e.g. rachel@enterprise.com" autocomplete="email" required></div></div>
+    <div class="fld"><label for="phone">Phone / WhatsApp</label><div class="inp"><svg class="ic"><use href="#i-ph"/></svg><input id="phone" name="phone" type="tel" placeholder="e.g. +91 98765 43210" autocomplete="tel" required></div></div>
+    <button type="submit" id="submitBtn" class="btn p sub-b"><span id="btnTxt">Get My Growth Plan</span><svg class="ic"><use href="#i-ar"/></svg></button>
+    <div id="msg" role="status" aria-live="polite"></div>
+    <div class="trust">🔒 No spam. No fluff. Just actionable clarity.</div>
+   </form>
+  </div>
+ </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec rv" id="reviews">
+ <div class="wrap">
+  <div class="shead" style="margin-bottom:40px"><span class="pill w">CLIENT SUCCESS STORIES</span><h2>What Our Clients Say</h2></div>
+  <div class="rgrid">
+   <div class="rev"><div><div class="top"><div class="stars"><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg></div><span class="ver">Verified Client</span></div><q>“I had zero presence before this. Within weeks, I started getting inbound messages and profile views.”</q></div><div class="auth"><img class="av" alt="" src="https://www.figma.com/api/mcp/asset/58792e88-b288-4c3a-9a3e-f714faefd1d4.png"><div><b>Kunal Sharma</b><span>SaaS Founder</span></div></div></div>
+   <div class="rev"><div><div class="top"><div class="stars"><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg></div><span class="ver">Verified Client</span></div><q>“The clarity I got here saved me months of trial and error.”</q></div><div class="auth"><img class="av" alt="" src="https://www.figma.com/api/mcp/asset/44586fd6-6985-48d5-a131-8d8043d3e219.png"><div><b>Elena Rostova</b><span>Tech Consultant</span></div></div></div>
+   <div class="rev"><div><div class="top"><div class="stars"><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg></div><span class="ver">Verified Client</span></div><q>“It’s not just content — it’s a full strategy. That’s what made the difference.”</q></div><div class="auth"><img class="av" alt="" src="https://www.figma.com/api/mcp/asset/9104ec76-92a0-4dfd-979a-c7007bd8f143.png"><div><b>Marcus Vance</b><span>Senior Product Lead</span></div></div></div>
+   <div class="rev"><div><div class="top"><div class="stars"><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg></div><span class="ver">Verified Client</span></div><q>“I finally understand how LinkedIn actually works.”</q></div><div class="auth"><img class="av" alt="" src="https://www.figma.com/api/mcp/asset/45f717a7-5405-4ad7-9c2a-348d2be1acc3.png"><div><b>Priya Nambiar</b><span>Independent Creator</span></div></div></div>
+  </div>
+  <div class="banner"><svg class="ic"><use href="#i-bd"/></svg>Results speak louder than promises.</div>
+ </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="background:var(--bg)">
+ <div class="faq">
+  <div class="shead"><span class="pill">CLEAR ANSWERS</span><h2>Frequently Asked Questions</h2><p>Everything you need to know about our proven LinkedIn growth formula.</p></div>
+  <div class="acc" id="acc">
+   <div class="it"><button aria-expanded="true">Who is this service for?<svg class="ic"><use href="#i-dn"/></svg></button><div class="ans">Anyone who wants to grow on LinkedIn, whether starting from zero or scaling their presence.</div></div>
+   <div class="it"><button aria-expanded="false">Do you create content for me?<svg class="ic"><use href="#i-dn"/></svg></button><div class="ans" hidden>We build your content strategy and pillars with you, so everything you publish sounds like you and is built to attract your ideal clients.</div></div>
+   <div class="it"><button aria-expanded="false">How long does it take to see results?<svg class="ic"><use href="#i-dn"/></svg></button><div class="ans" hidden>Most people start noticing more profile views and inbound messages within the first few weeks of consistent posting. Lasting authority builds over about three months.</div></div>
+   <div class="it"><button aria-expanded="false">Is this only for job seekers?<svg class="ic"><use href="#i-dn"/></svg></button><div class="ans" hidden>No. It’s built for founders, executives, consultants and creators who want clients, speaking invites and industry authority — not just a new job.</div></div>
+   <div class="it"><button aria-expanded="false">What makes this different?<svg class="ic"><use href="#i-dn"/></svg></button><div class="ans" hidden>We don’t just optimize profiles. We build your whole personal brand — strategy, content and consistency — instead of handing you a checklist.</div></div>
+   <div class="it"><button aria-expanded="false">Do I need prior experience on LinkedIn?<svg class="ic"><use href="#i-dn"/></svg></button><div class="ans" hidden>Not at all. We’ve built personal brands from absolute zero, with no existing followers or technical know-how required.</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- BOTTOM ACTION -->
+<section class="bot" id="contact">
+ <div class="wrap">
+  <div class="bg3">
+   <div class="bc"><div class="nm"><b>LinkPulse</b><span class="tag">GROWTH ENGINE</span></div><p>Building personal brands that stand out — not blend in.</p></div>
+   <div class="qn"><div class="h5">Quick Navigation</div><ul><li><a href="#top">Home</a></li><li><a href="#results">Services</a></li><li><a href="#audit">Book Audit</a></li><li><a href="#contact">Contact</a></li></ul></div>
+   <div class="co"><div class="h5">Reach Out</div><p>Have questions? Reach out anytime.</p><div class="cl"><a href="mailto:hello@linkpulse.io"><svg class="ic"><use href="#i-mail"/></svg>hello@linkpulse.io</a><a href="#form"><svg class="ic"><use href="#i-msg"/></svg>WhatsApp Chat</a></div></div>
+  </div>
+  <div class="cn"><p>© 2026 All Rights Reserved. Built for those who are ready to be seen.</p><span>Enterprise Grade Advisory &nbsp;•&nbsp; Guaranteed Confidentiality</span></div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="f1">
+   <a href="#top" class="logo">LinkPulse</a>
+   <p>The premier LinkedIn Growth and Authority Partner for Founders, Executives, and Tier-One Consultants.</p>
+   <nav><a href="#top">Privacy Policy</a><a href="#top">Terms of Service</a><a href="#top">Security</a></nav>
+  </div>
+  <div class="f2"><p>© 2025 LinkPulse Authority Engine. All rights reserved.</p><span><i></i>Enterprise LinkedIn Advisory</span></div>
+ </div>
+</footer>
+
+<script>
+(function () {
+  // ---- Google Apps Script web app URL ----
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1S6HhadBJkwVY1WC9UWqg9F443M0z80xM7HKxWGkA8h36BJgx4O8V7ua8ru3wvTTG/exec";
+
+  // ---- FAQ accordion ----
+  var items = document.querySelectorAll("#acc .it");
+  items.forEach(function (it) {
+    var btn = it.querySelector("button"), ans = it.querySelector(".ans");
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      ans.hidden = open;
+    });
+  });
+
+  // ---- Lead form -> Google Sheets ----
+  var form = document.getElementById("leadForm");
+  var msg = document.getElementById("msg");
+  var btn = document.getElementById("submitBtn");
+  var txt = document.getElementById("btnTxt");
+
+  function showSuccess() {
+    msg.className = "ok";
+    msg.textContent = "Thank you! Your details are in — we’ll be in touch shortly.";
+    form.reset();
+    btn.disabled = false; txt.textContent = "Get My Growth Plan";
+  }
+  function showError() {
+    msg.className = "err";
+    msg.textContent = "Something went wrong. Please check your connection and try again.";
+    btn.disabled = false; txt.textContent = "Get My Growth Plan";
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var phone = form.phone.value.trim();
+
+    if (!name || !email || !phone || !/^\S+@\S+\.\S+$/.test(email)) {
+      msg.className = "err";
+      msg.textContent = "Please enter your name, a valid email and your phone number.";
+      return;
+    }
+
+    msg.className = ""; msg.textContent = "";
+    btn.disabled = true; txt.textContent = "Sending…";
+
+    var url = SCRIPT_URL + "?" + new URLSearchParams({ name: name, email: email, phone: phone });
+    fetch(url, { method: "GET", mode: "no-cors" })
+      .then(function () { showSuccess(); })
+      .catch(function () { showError(); });
+  });
+})();
+</script>
+</body>
+</html>
